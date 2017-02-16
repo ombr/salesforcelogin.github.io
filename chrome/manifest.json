@@ -1,0 +1,26 @@
+{
+  "name": "Salesforce login extention",
+  "version": "1",
+  "manifest_version": 2,
+  "description": "A better login experience for salesforce",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Salesforce Login"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "https://login.salesforce.com/"],
+      "js": ["login.salesforce.com.js"]
+    }
+  ],
+  "externally_connectable": {
+     "matches": ["http://localhost:5000/*"]
+  },
+  "permissions": [
+    "https://login.salesforce.com/",
+    "https://test.salesforce.com/"
+  ]
+}
